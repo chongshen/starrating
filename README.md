@@ -1,5 +1,4 @@
-# star rating
-Custom Control in Dynamics 365 for Web Forms: Star Rating - HTML, CSS, JavaScript, jQuery
+# Custom Control in Dynamics 365 for Web Forms: Star Rating - HTML, CSS, JavaScript, jQuery
 
 
 Star rating is available in Dynamics 365 for mobile, but not for web. Although an option set will provide the same functionality, but it's never as convenient and friendly as a star rating. Also there's a known issue for Dynamics CRM/365 user interface - the option sets are just too small.
