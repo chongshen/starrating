@@ -7,3 +7,6 @@ I made this simple custom HTML web resource for a 5-star rating on web form. It 
 
 Star rating CSS inspired by James Barnett: https://codepen.io/jamesbarnett/pen/vlpkh
 Hope this makes your CRM forms more friendly.
+
+
+![alt text](https://github.com/chongshen/starrating/blob/master/starrating.PNG)
