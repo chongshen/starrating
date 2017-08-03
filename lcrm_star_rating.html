@@ -1,0 +1,107 @@
+<html><head><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+function check(rating){
+	var lcrm_rating_value = 269420005 - rating;
+	window.parent.Xrm.Page.getAttribute("lcrm_rating").setValue(lcrm_rating_value);  
+	if (rating <= 2){
+	window.parent.Xrm.Page.getAttribute("lcrm_comments").setRequiredLevel("required");
+	}
+	else{
+	window.parent.Xrm.Page.getAttribute("lcrm_comments").setRequiredLevel("none");
+	}
+	}
+
+
+$(document).ready(function(){
+	var lcrm_rating_value = parent.Xrm.Page.getAttribute("lcrm_rating").getValue();
+	var rating_star_number;
+	if (lcrm_rating_value != null){ 
+	switch (lcrm_rating_value){
+		case 269420000:
+			rating_star_number = "star5";
+			break;
+		case 269420001:
+			rating_star_number = "star4";
+			break;
+		case 269420002:
+			rating_star_number = "star3";
+			break;
+		case 269420003:
+			rating_star_number = "star2";
+			break;
+		case 269420004:
+			rating_star_number = "star1";
+			break;
+	}
+	document.getElementById(rating_star_number).checked = true;
+	}
+	
+});
+
+
+</script>
+
+
+
+
+<meta><meta></head><body style="word-wrap: break-word;"><fieldset class="rating">
+    <input type="radio" id="star5" name="rating" onclick="check(this.value)" value="5"><label class="full" for="star5" title="5 stars"></label>
+
+    <input type="radio" id="star4" name="rating" onclick="check(this.value)" value="4"><label class="full" for="star4" title="4 stars"></label>
+
+    <input type="radio" id="star3" name="rating" onclick="check(this.value)" value="3"><label class="full" for="star3" title="3 stars"></label>
+
+    <input type="radio" id="star2" name="rating" onclick="check(this.value)" value="2"><label class="full" for="star2" title="2 stars"></label>
+
+    <input type="radio" id="star1" name="rating" onclick="check(this.value)" value="1"><label class="full" for="star1" title="1 star"></label>
+
+</fieldset>
+
+
+
+<style>
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+fieldset, label{
+	margin: 0; 
+	padding: 0; 
+}
+
+body{
+	margin-left: 15px; 
+}
+
+
+.rating { 
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+</style>
+
+
+
+</body></html>
